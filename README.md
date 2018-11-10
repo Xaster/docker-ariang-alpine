@@ -9,7 +9,10 @@ $ docker run -d \
     --name docker-ariang-alpine \
     -v /DOWNLOAD_DIR:/aria2/downloads \
     -v /CONFIG_DIR:/aria2/conf \
-    -p 6800:6800 -p 6882:6882/udp -p 51414:51414 -p 9092:9092 \
+    -p 6800:6800 \
+    -p 6882:6882/udp \
+    -p 51414:51414 \
+    -p 9092:9092 \
     -e SECRET=YOUR_SECRET_CODE \
     -e TIMEZONE=YOUR_TIME_ZONE \
     xaster/docker-ariang-alpine
