@@ -6,8 +6,12 @@ RUN apk upgrade --no-cache \
          wget \
     && mkdir -p /aria2/conf /aria2/downloads /ariang \ 
     && ARIANG_VERSION=$(curl -sS --fail https://github.com/mayswind/AriaNg/releases | \
-        grep -o '/AriaNg/archive/[0-9.]*[.]tar[.]gz' | \
+        grep -o '/AriaNg/archive/[a-zA-Z0-9.]*[.]tar[.]gz' | \
         sed -e 's~^/AriaNg/archive/~~' -e 's~\.tar\.gz$~~' | \
+        sed '/alpha.*/Id' | \
+        sed '/pre.*/Id' | \
+        sed '/beta.*/Id' | \
+        sed '/rc.*/Id' | \
         sort -t '.' -k 1,1 -k 2,2 -k 3,3 -k 4,4 -g | \
         tail -n 1) \
     && wget --no-check-certificate https://github.com/mayswind/AriaNg/releases/download/${ARIANG_VERSION}/AriaNg-${ARIANG_VERSION}.zip \
