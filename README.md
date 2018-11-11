@@ -7,8 +7,8 @@ $ docker pull xaster/docker-ariang-alpine
 
 $ docker run -d \
     --name docker-ariang-alpine \
-    -v /DOWNLOAD_DIR:/aria2/downloads \
-    -v /CONFIG_DIR:/aria2/conf \
+    -v /DOWNLOAD_DIR:/usr/share/aria2 \
+    -v /CONFIG_DIR:/etc/aria2 \
     -p 6800:6800 \
     -p 6882:6882/udp \
     -p 51414:51414 \
