@@ -2,9 +2,6 @@
 if [ ! -f /etc/aria2/aria2.conf ]; then
   cp /etc/aria2_default/aria2.conf /etc/aria2/aria2.conf
 fi
-if [ ! -f /etc/aria2/Complete ]; then
-  cp -a /etc/aria2_default/Complete /etc/aria2/Complete
-fi
 if [ $SECRET ]; then
   grep -q "rpc-secret" /etc/aria2/aria2.conf
   if [ $? -eq 0 ];then

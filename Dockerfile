@@ -23,9 +23,7 @@ RUN apk upgrade --no-cache \
     && unzip AriaNg-${ARIANG_VERSION}.zip -d /usr/share/ariang \
     && rm -rf AriaNg-${ARIANG_VERSION}.zip \
     && wget --no-check-certificate -O /etc/aria2_default/aria2.conf https://raw.githubusercontent.com/Xaster/docker-ariang-alpine/master/aria2.conf \
-    && wget --no-check-certificate -O /etc/aria2_default/Complete https://raw.githubusercontent.com/Xaster/docker-ariang-alpine/master/Complete \
     && wget --no-check-certificate -O /usr/bin/CMD-Shell https://raw.githubusercontent.com/Xaster/docker-ariang-alpine/master/CMD-Shell \
-    && chmod +x /etc/aria2_default/Complete \
     && chmod +x /usr/bin/CMD-Shell \
     && apk del .build-deps \
     && apk add --no-cache aria2 darkhttpd tzdata
