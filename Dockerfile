@@ -4,6 +4,7 @@ RUN apk upgrade --no-cache \
     && apk add --no-cache --virtual .build-deps \
          curl \
          wget \
+         sed \
     && mkdir -p /aria2/conf /aria2/downloads /ariang \ 
     && ARIANG_VERSION=$(curl -sS --fail https://github.com/mayswind/AriaNg/releases | \
         grep -o '/AriaNg/archive/[a-zA-Z0-9.]*[.]tar[.]gz' | \
