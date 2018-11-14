@@ -12,7 +12,7 @@ fi
 if [ $TIMEZONE ]; then
   rm -rf /etc/localtime
   echo "${TIMEZONE}" > /etc/TZ
-  cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
+  ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
 fi
 touch /etc/aria2/aria2.session
 darkhttpd usr/share/ariang --port 9092
